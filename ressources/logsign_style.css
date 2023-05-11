@@ -1,0 +1,91 @@
+.login, .signup {
+    width: 45%;
+    border-radius: 7px;
+    padding-bottom: 20px;
+    padding-left: 20px;
+    padding-right: 20px;
+    color: #fff;
+}
+.login h2, .signup h2 {
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.input-group {
+    margin-bottom: 20px;
+}
+.input-group label {
+    font-size: 10px;
+    position: relative;
+    display: compact;
+    top: 10px;
+    margin-left: 20px;
+    padding: 2px;
+    border-radius: 10px;
+    color: #6532AC;
+    background-color: #ffffff;
+
+}
+
+input[type="email"], input[type="password"], input[type="text"]{
+    display: block;
+    width: 95%;
+    padding: 10px;
+    border-radius: 5px;
+    border: none;
+    background-color: #FDFDFD;
+    color: #333;
+    font-size: 16px;
+    outline: none;
+}
+.classe{
+    display: block;
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    border: none;
+    background-color: #FDFDFD;
+    color: #333;
+    font-size: 16px;
+    outline: none;
+}
+input[type="email"]::placeholder, input[type="password"]::placeholder, input[type="text"]::placeholder {
+    color: #999;
+    opacity: 0.5;
+}
+
+button[type="submit"] {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    border: none;
+    background-color: #59698D;
+    color: #FDFDFD;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+button[type="submit"]:hover {
+    background-color: #3b475e;
+}
+
+.forgot-password {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    color: white;
+}
+
+.forgot-password a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.forgot-password i {
+    color: #fff;
+    font-size: 20px;
+}
