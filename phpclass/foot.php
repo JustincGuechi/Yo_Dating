@@ -7,7 +7,7 @@ class foot
     <footer>
         <div class="footer-content">
             <div class="commercial">
-                <h3>&copy; $YEAR - $OWNER -</h3>
+                <h3>&copy; $YEAR - <a href="easter.html" style="text-decoration: none; color: #fff">$OWNER</a> -</h3>
             </div>
             <div class="text">
                 <p> Tous droits réservés </p>

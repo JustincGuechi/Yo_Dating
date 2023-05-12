@@ -16,32 +16,55 @@
 </head>
 <body>
 <?php
-        require_once('phpclass/menu.php');
-        echo menu::getHTML();
+require_once('phpclass/menu.php');
+echo menu::getHTML();
 ?>
 <div class="titre">
-    <p>
-        Bienvenue sur
-        <?php echo $WEBSITE;
-            if (isset($_SESSION['user'])) {
-                echo " | Bienvenue : ID n°" . $_SESSION['user'][0] . " " . $_SESSION['user'][1] . " " . $_SESSION['user'][2];
-            }
+    <?php
+    if (!isset($_SESSION['user'])) {
         ?>
-    </p>
+        <p>
+            Bienvenue sur
+            <?php echo $WEBSITE;
+            ?>
+        </p>
+        <?php
+    } elseif (isset($_GET['page'])) {
+        if ($_GET['page'] == 'profil') {
+            ?><p>
+            <?php
+            echo "Bienvenue : ID n°" . $_SESSION['user'][0] . " " . $_SESSION['user'][1] . " " . $_SESSION['user'][2];
+            ?>
+            </p>
+            <?php
+        }
+    }
+    ?>
+
 </div>
 <div class="container">
+
     <?php
+    if (!isset($_SESSION['user'])) {
         require_once('phpclass/login.php');
         echo login::getHTML();
         require_once('phpclass/signup.php');
         echo signup::getHTML();
-        require_once ('phpclass/submit.php');
+        require_once('phpclass/submit.php');
         submit::submit($database);
+    } else {
+        if (isset($_GET['page'])) {
+            if ($_GET['page'] == 'profil') {
+                require_once('phpclass/profil_image.php');
+                echo profil_image::getPhoto();
+            }
+        }
+    }
     ?>
 </div>
 <?php
-    require_once('phpclass/foot.php');
-    echo foot::getHTML($OWNER, date("Y"));
+require_once('phpclass/foot.php');
+echo foot::getHTML($OWNER, date("Y"));
 ?>
 </body>
 </html>

@@ -5,8 +5,6 @@ class login
     public static function getHTML(){
         $html = '<div class="login">';
         $html .= '<h2>Connexion</h2>';
-        require_once('profil_image.php');
-        $html .= profil_image::getPhoto();
         $html .= '<form method="post">';
         $html .= '<div class="input-group">';
         $html .= '<input type="email" name="mail"placeholder="Adresse e-mail" required>';
