@@ -1,3 +1,13 @@
+.login {
+    background-color: #615DFA;
+    transform: translate(-5%);
+}
+
+.signup {
+    background-color: #6532AC;
+    transform: translate(+5%);
+}
+
 .login, .signup {
     width: 45%;
     border-radius: 7px;
@@ -6,6 +16,7 @@
     padding-right: 20px;
     color: #fff;
 }
+
 .login h2, .signup h2 {
     text-align: center;
     margin-bottom: 10px;

@@ -18,7 +18,7 @@ class menu
             $html .= '<div class="session-menu">';
             $html .= '<a href="#">Session</a>';
             $html .= '<ul>';
-            $html .= '<li><a href="#">Mon compte</a></li>';
+            $html .= '<li><a href="profil.php">Mon compte</a></li>';
             $html .= '<li><a href="deconnexion.php">Déconnexion</a></li>';
             $html .= '</ul>';
             $html .= '</div>';

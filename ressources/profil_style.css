@@ -1,0 +1,11 @@
+.profil {
+    margin: 15vh auto;
+    width: 75%;
+    border-radius: 7px;
+    color: black;
+    background-color: #6532AC;
+}
+
+.image_profil img {
+    max-width: 100px;
+}

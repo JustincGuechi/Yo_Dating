@@ -3,23 +3,24 @@
 class login
 {
     public static function getHTML(){
-        $html = <<<HTML
-        <div class="login">
-            <h2>Connexion</h2>
-            <form method="post">
-                <div class="input-group">
-                    <input type="email" name="mail"placeholder="Adresse e-mail" required>
-                </div>
-                <div class="input-group">
-                    <input type="password" name="mdp" placeholder="Mot de passe" required>
-                </div>
-                <button type="submit" name="logsubmit">Connexion</button>
-                <div class="forgot-password">
-                    <img src="ressources/cle.png" width="20px"><a href="#">Mot de passe perdu ?</a>
-                </div>
-            </form>
-        </div>
-HTML;
+        $html = '<div class="login">';
+        $html .= '<h2>Connexion</h2>';
+        require_once('profil_image.php');
+        $html .= profil_image::getPhoto();
+        $html .= '<form method="post">';
+        $html .= '<div class="input-group">';
+        $html .= '<input type="email" name="mail"placeholder="Adresse e-mail" required>';
+        $html .= '</div>';
+        $html .= '<div class="input-group">';
+        $html .= '<input type="password" name="mdp" placeholder="Mot de passe" required>';
+        $html .= '</div>';
+        $html .= '<button type="submit" name="logsubmit">Connexion</button>';
+        $html .= '<div class="forgot-password">';
+        $html .= '<img src="ressources/cle.png" width="20px"><a href="#">Mot de passe perdu ?</a>';
+        $html .= '</div>';
+        $html .= '</form>';
+        $html .= '</div>';
+
         return $html;
     }
 }

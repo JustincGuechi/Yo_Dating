@@ -70,16 +70,6 @@ nav a:hover {
 }
 
 
-.login{
-    background-color: #615DFA;
-    transform: translate(-5%);
-}
-.signup{
-    background-color: #6532AC;
-    transform: translate(+5%);
-}
-
-
 footer {
     background-color: #444444;
     color: white;

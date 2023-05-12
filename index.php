@@ -23,7 +23,9 @@
     <p>
         Bienvenue sur
         <?php echo $WEBSITE;
-            if (isset($_SESSION['user'])){echo " | Bienvenue : ".$_SESSION['user'][0]." ".$_SESSION['user'][1];}
+            if (isset($_SESSION['user'])) {
+                echo " | Bienvenue : ID n°" . $_SESSION['user'][0] . " " . $_SESSION['user'][1] . " " . $_SESSION['user'][2];
+            }
         ?>
     </p>
 </div>
