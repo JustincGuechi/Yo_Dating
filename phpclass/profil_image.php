@@ -7,7 +7,7 @@ class profil_image
         $html = null;
         if (isset($_SESSION['user'])) {
             $html = '<link rel="stylesheet" href="ressources/profil_style.css">';
-            $html .= '<img class="image_profil" src="' . $_SESSION['user'][4] . '"alt="LogoEseo">';
+            $html .= '<img class="image_profil" src="' . $_SESSION['user'][4] . '" alt="Image de Profil">';
         }
         return $html;
     }

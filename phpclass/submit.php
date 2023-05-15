@@ -25,7 +25,7 @@ class submit
                         $date = date("d-m-Y");
                         $photo = htmlspecialchars('profil-vide.png');
                         $sql = "INSERT INTO Etudiant (mail,nom,prenom, password, idAnneScolaire, photo, dateIns)
-                        VALUES ('$mail', '$nom', '$prenom','$password','$classe', '$photo', STR_TO_DATE('$date', '%d-%m-%Y'))";
+                        VALUES ('$mail', '$nom', '$prenom','$password','$classe', '$photo', STR_TO_DATE('$date', '%d-%m-%Y²'))";
                         try {
                             $rs = mysqli_query($database, $sql);
                         } catch (PDOException $e) {
