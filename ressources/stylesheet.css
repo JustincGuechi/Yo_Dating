@@ -1,34 +1,20 @@
+@import url('https://fonts.googleapis.com/css2?family=Rajdhani');
 body {
     font-family: 'Rajdhani', sans-serif;
     font-size: 14px;
 }
-header {
-    background-color: #615DFA;
-    display: flex;
-    align-items: center;
-    padding: 40px;
-    max-height: 20px;
-    position: absolute;
-    top: 0;
-    right: 0;
-    left: 0;
-}
+
 .logo{
     float: left;
     width: 10%;
     min-width: 200px;
 }
-.logo img{
+
+.logo img {
     width: 80%;
 }
 
-nav {
-    padding-left: 10px;
-    display: flex;
-    align-items: center;
-}
-
-nav ul {
+.nav ul {
     display: flex;
     justify-content: flex-start;
     margin-left: 2%;
@@ -36,40 +22,135 @@ nav ul {
     list-style: none;
 }
 
-nav li {
+.nav li {
     margin-right: 20px;
 }
 
-nav a {
+.nav a {
     display: block;
     padding: 10px;
     color: #F5E6FE;
-    text-decoration:none;
+    text-decoration: none;
     font-size: 17px;
 }
 
-nav a:hover {
+.nav a:hover {
     transition: all 0.3s ease;
     font-size: 20px;
     border-radius: 5px;
     background-color: #716EFA;
     color: #ffffff;
 }
-.titre{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 15vh;
-    font-size: 30px;
-}
-.container {
-    max-width: 800px;
-    margin: 0 auto;
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
+
+@media (max-width: 481px) {
+    .nav {
+        position: absolute;
+        top: 10px;
+        padding-left: 10px;
+        display: flex;
+        align-items: center;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .container {
+        max-width: 800px;
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding-bottom: 20%;
+    }
+
+    .head {
+        background-color: #615DFA;
+        padding: 70px;
+        position: absolute;
+        top: 0;
+        right: 0;
+        left: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .nb_notification {
+        font-size: 14px;
+        position: absolute;
+        right: 10px;
+        top: 40px;
+        display: compact;
+        margin-left: 20px;
+        padding: 5px;
+        border-radius: 10px;
+        color: white;
+        background-color: red;
+        z-index: 2;
+    }
+
+    .titre {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 25vh;
+        font-size: 30px;
+    }
 }
 
+@media (min-width: 481px) {
+    .nav {
+        padding-left: 10px;
+        display: flex;
+        align-items: center;
+    }
+
+    .container {
+        max-width: 800px;
+        margin: 0 auto;
+        display: flex;
+        align-items: flex-start;
+        padding-bottom: 10%;
+    }
+
+    .head {
+        font-family: 'Rajdhani', sans-serif;
+        font-size: 14px;
+        background-color: #615DFA;
+        display: flex;
+        align-items: center;
+        padding: 40px;
+        max-height: 30px;
+        position: absolute;
+        top: 0;
+        right: 0;
+        left: 0;
+    }
+
+    .nb_notification {
+        font-size: 14px;
+        position: relative;
+        display: compact;
+        top: -10px;
+        right: -50%;
+        margin-left: 20px;
+        padding: 5px;
+        border-radius: 10px;
+        color: white;
+        background-color: red;
+        z-index: 2;
+    }
+
+    .titre {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 15vh;
+        font-size: 30px;
+    }
+}
 
 footer {
     background-color: #444444;
@@ -100,7 +181,9 @@ footer {
 }
 .session-menu {
     display: inline-block;
-    position: relative;
+    position: absolute;
+    right: 30px;
+    top: 40%;
 }
 
 .session-menu a {
@@ -112,7 +195,7 @@ footer {
     text-decoration: none;
 }
 
-.session-menu a:hover {
+.session-menu a:hover, .notification:hover {
     background-color: #555;
     border-radius: 5px;
 
@@ -147,6 +230,11 @@ footer {
     text-decoration: none;
 }
 
-.session-menu ul li a:hover {
+.session-menu ul li a:hover, .notification:hover {
     background-color: #555;
+}
+
+#Suppr {
+    position: relative;
+    left: 45%;
 }

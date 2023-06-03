@@ -1,8 +1,4 @@
 <?php
-
-class submit
-{
-    public static function submit($database){
         if (isset($_POST['signsubmit'])) {
             if ($_POST['mdp'] != $_POST['cmdp']) {
                 echo "<script> alert('Les mdp doivent être les mêmes')</script>";
@@ -24,13 +20,11 @@ class submit
                         $classe = $row['idAnneScolaire'];
                         $date = date("d-m-Y");
                         $photo = htmlspecialchars('profil-vide.png');
-                        $sql = "INSERT INTO Etudiant (mail,nom,prenom, password, idAnneScolaire, photo, dateIns)
-                        VALUES ('$mail', '$nom', '$prenom','$password','$classe', '$photo', STR_TO_DATE('$date', '%d-%m-%Y²'))";
-                        try {
-                            $rs = mysqli_query($database, $sql);
-                        } catch (PDOException $e) {
-                            echo "Connection failed: " . $e->getMessage();
-                        }
+                        $check = $database->prepare("INSERT INTO Etudiant (mail,nom,prenom, password, idAnneScolaire, photo, dateIns)
+                        VALUES ('$mail', '$nom', '$prenom','$password','$classe', '$photo', STR_TO_DATE('$date', '%d-%m-%Y²'))");
+                        $check->execute();
+                        require_once("notification.php");
+                        $result = $check->get_result();
                     } else {
                         echo "<script> alert('Email existe déjà')</script>";
                     }
@@ -41,7 +35,7 @@ class submit
             $mail = htmlspecialchars($_POST['mail']);
             $password = htmlspecialchars($_POST['mdp']);
             $mail = strtolower($mail);
-            $check = $database->prepare('SELECT id, nom, prenom, mail, password, photo FROM Etudiant WHERE mail = ?');
+            $check = $database->prepare('SELECT id, nom, prenom, mail, password, photo,description FROM Etudiant WHERE mail = ?');
             $check->execute(array($mail));
             $result = $check->get_result();
             $row = $result->num_rows;
@@ -51,13 +45,15 @@ class submit
                 if(filter_var($mail, FILTER_VALIDATE_EMAIL))
                 {
                     if (password_verify($password, $data['password'])) {
-                        $_SESSION['user'] = array();
-                        $_SESSION['user'][] = $data['id'];
-                        $_SESSION['user'][] = $data['nom'];
-                        $_SESSION['user'][] = $data['prenom'];
-                        $_SESSION['user'][] = $data['mail'];
-                        $_SESSION['user'][] = "ressources/profil_image/" . $data['photo'];
+                        $_SESSION['id'] = $data['id'];
+                        $_SESSION['nom'] = $data['nom'];
+                        $_SESSION['prenom'] = $data['prenom'];
+                        $_SESSION['mail'] = $data['mail'];
+                        $_SESSION['photo'] = "ressources/profil_image/" . $data['photo'];
+                        $_SESSION['bio'] = $data['description'];
                         header('Location: index.php');
+                        $status = "Active now";
+                        $sql = mysqli_query($database, "UPDATE Etudiant SET status = '{$status}' WHERE id={$_SESSION['id']}");
                         die();
 
                     }else{echo "<script> alert('password')</script>";}
@@ -65,8 +61,5 @@ class submit
                 }else{echo "<script> alert('mail')</script>";}
              }else{echo "<script> alert('account')</script>";}
 
-
-        }
-    }
 }
 ?>

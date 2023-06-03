@@ -1,9 +1,5 @@
 <?php
-class signup
-{
-    public static function getHTML()
-    {
-        $html = <<<HTML
+?>
         <div class="signup">
             <h2>Inscription</h2>
             <form method="post">
@@ -14,7 +10,6 @@ class signup
                     <input type="text" name="prenom" placeholder="Prénom" required>
                 </div>
                 <div class="input-group" >
-                    <label>Année Scolaire</label>
                     <select class="classe" name="classe" required>
                         <optgroup label="Année Scolaire">
                             <option>E1</option> 
@@ -32,14 +27,9 @@ class signup
                     <input type="password" name="mdp" placeholder="Mot de passe" required>
                 </div>
                 <div class="input-group">
-                    <input type="password"  name="cmdp" placeholder="Confirmer le Mot de passe" required>
+                    <input type="password" name="cmdp" placeholder="Confirmer le Mot de passe" required>
                 </div>
                 <button type="submit" name="signsubmit">Inscription</button>
+                <label class="AScol">Année Scolaire</label>
             </form>
         </div>
-HTML;
-
-        return $html;
-        }
-    }
-?>
