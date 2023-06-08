@@ -27,18 +27,21 @@ include_once "phpclass/menu.php"
         <div class="details">
           <span><?php echo $row['prenom'] . " " . $row['nom'] ?></span>
           <p><?php echo $row['status']; ?></p>
+
         </div>
       </div>
+        <a style="text-decoration: none; color: black" href="add.php"><i class="fa-solid fa-plus fa-2xl"></i></a>
     </header>
-    <div class="search">
-      <span class="text">Liste des Conversations</span>
-      <input type="text" style="display: none;" placeholder="Enter name to search...">
-      <button style="display: none;"><i class="fas fa-search"></i></button>
-    </div>
-    <div></div>
-    <div class="users-list">
+      <div class="search">
+          <span class="text">Liste des Conversations</span>
+          <a><i class="bi bi-plus-lg icon-black"></i></a>
+          <input type="text" style="display: none;" placeholder="Enter name to search...">
+          <button style="display: none;"><i class="fas fa-search"></i></button>
+      </div>
+      <div></div>
+      <div class="users-list">
 
-    </div>
+      </div>
   </section>
 </div>
 <?php

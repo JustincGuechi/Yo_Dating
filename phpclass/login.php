@@ -11,7 +11,7 @@
         </div>
         <button type="submit" name="logsubmit">Connexion</button>
         <div class="forgot-password">
-            <img src="ressources/cle.png" width="20px"><a href="#">Mot de passe perdu ?</a>
+            <img src="ressources/cle.png" width="20px"><a href="mdpPerdu.php">Mot de passe perdu ?</a>
         </div>
     </form>
 </div>

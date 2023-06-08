@@ -78,7 +78,7 @@
                 <div>
                     <li><a href="profil.php?id=<?php echo $_SESSION['id'] ?>"><i class="fas fa-user-circle"></i> Mon
                             profil</a></li>
-                    <li><a href="users.php" class="menu">Conversation</a></li>
+                    <li><a href="users.php" class="menu"><i class="fa-solid fa-envelope"></i> Conversation</a></li>
                     <li><a class="dropdown-item rounded waves-effect waves-light btn-primary mb-0"
                            href="deconnexion.php">Deconnexion <i class="fas fa-sign-out-alt"></i>
                         </a></li>

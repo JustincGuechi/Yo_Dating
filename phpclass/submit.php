@@ -8,8 +8,9 @@
                 $nom = htmlspecialchars($_POST['nom']);
                 $prenom = htmlspecialchars($_POST['prenom']);
                 $classe = htmlspecialchars($_POST['classe']);
+                $password = htmlspecialchars($_POST['mdp']);
                 $cost = ['cost' => 12];
-                $password = password_hash(htmlspecialchars($_POST['mdp']), PASSWORD_BCRYPT, $cost);
+                $password = password_hash($password, PASSWORD_BCRYPT, $cost);
                 if (filter_var($mail, FILTER_VALIDATE_EMAIL)) {
                     $mql = "SELECT count(*) as count FROM Etudiant WHERE mail = '$mail'";
                     $mailexists = mysqli_fetch_assoc(mysqli_query($database, $mql));

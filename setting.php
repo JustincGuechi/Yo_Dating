@@ -1,6 +1,11 @@
 <?php
 require_once('phpclass/head.php');
+if (!isset($_SESSION['id'])) {
+    header("location: index.php");
+
+}
 ?>
+
 <body>
 <link rel="stylesheet" href="ressources/setting.css">
 <?php
@@ -8,7 +13,7 @@ require_once('phpclass/menu.php');
 ?>
 <div class="titre">
 </div>
-<div class="container">
+<div class="container" style=" transform: translate(+5%, -10%)">
     <?php
     if (isset($_SESSION['id'])) { ?>
         <div class="setting">
@@ -17,7 +22,7 @@ require_once('phpclass/menu.php');
                 <div class="input-group">
                     <input type="file" name="Image" accept=".jpg, .jpeg, .png">
                 </div>
-                <button type="submit" name="picture">Changer d'image</button>
+                <button type="submit" name="picture" style="margin-bottom: 20px">Changer d'image</button>
 
             </form>
             <form method="post">

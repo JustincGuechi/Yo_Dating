@@ -1,0 +1,188 @@
+header {
+
+    background-color: #615DFA;
+
+    display: flex;
+
+    align-items: center;
+
+    padding: 40px;
+
+    max-height: 20px;
+
+    position: absolute;
+
+    top: 0;
+
+    right: 0;
+
+}
+
+.logo {
+
+    float: left;
+
+    width: 10%;
+
+    min-width: 200px;
+
+}
+
+.logo img {
+
+    width: 80%;
+
+}
+
+
+nav {
+
+    padding-left: 10px;
+
+    display: flex;
+
+    align-items: center;
+
+}
+
+
+nav ul {
+
+    display: flex;
+
+    justify-content: flex-start;
+
+    margin-left: 2%;
+
+    padding: 0;
+
+    list-style: none;
+
+}
+
+
+nav li {
+
+    margin-right: 20px;
+
+}
+
+
+nav a {
+
+    display: block;
+
+    padding: 10px;
+
+    color: #F5E6FE;
+
+    text-decoration: none;
+
+    font-size: 17px;
+
+}
+
+
+nav a:hover {
+
+    transition: all 0.3s ease;
+
+    font-size: 20px;
+
+    border-radius: 5px;
+
+    background-color: #716EFA;
+
+    color: #ffffff;
+
+}
+
+body {
+    font-family: Rajdhani;
+}
+
+
+.container {
+    max-width: 800px;
+    margin: 15vh auto;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.titre {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 15vh;
+    font-size: 30px;
+}
+
+.mailRec {
+    background-color: darkblue;
+    width: 45%;
+    border-radius: 10px;
+    padding-left: 20px;
+    padding-top: 10px;
+    padding-right: 20px;
+    color: #FFFFFF;
+    transform: translate(5%);
+}
+
+
+.mailRec p1 {
+    diplay: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 45px;
+    font-size: 20px;
+    padding-left: 40px;
+
+    text-decoration: none;
+}
+
+.mailRec dt input {
+    width: 100%;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    border: 0;
+    height: 40px;
+}
+
+
+.Boutonc button {
+    width: 101%;
+    background-color: #5D688A;
+    border-radius: 15px;
+    border: 0;
+    height: 40px;
+    color: #FFF;
+}
+
+footer {
+    background-color: #444444;
+    color: white;
+    height: 80px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    bottom: 0;
+    left: 0;
+    position: fixed;
+}
+
+.footer-content {
+    width: 80%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.commercial {
+    max-width: 50%;
+}
+
+.text {
+    text-align: right;
+}
