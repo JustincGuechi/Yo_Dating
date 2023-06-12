@@ -12,16 +12,16 @@
                 $cost = ['cost' => 12];
                 $password = password_hash($password, PASSWORD_BCRYPT, $cost);
                 if (filter_var($mail, FILTER_VALIDATE_EMAIL)) {
-                    $mql = "SELECT count(*) as count FROM Etudiant WHERE mail = '$mail'";
+                    $mql = "SELECT count(*) as count FROM etudiant WHERE mail = '$mail'";
                     $mailexists = mysqli_fetch_assoc(mysqli_query($database, $mql));
                     if ($mailexists["count"] == 0) {
-                        $sql = "SELECT idAnneScolaire from AnneeScolaire where nom = '$classe'";
+                        $sql = "SELECT idAnneScolaire from anneescolaire where nom = '$classe'";
                         $rs = mysqli_query($database, $sql);
                         $row = mysqli_fetch_assoc($rs);
                         $classe = $row['idAnneScolaire'];
                         $date = date("d-m-Y");
                         $photo = htmlspecialchars('profil-vide.png');
-                        $check = $database->prepare("INSERT INTO Etudiant (mail,nom,prenom, password, idAnneScolaire, photo, dateIns)
+                        $check = $database->prepare("INSERT INTO etudiant (mail,nom,prenom, password, idAnneScolaire, photo, dateIns)
                         VALUES ('$mail', '$nom', '$prenom','$password','$classe', '$photo', STR_TO_DATE('$date', '%d-%m-%Y²'))");
                         $check->execute();
                         require_once("notification.php");
@@ -36,7 +36,7 @@
             $mail = htmlspecialchars($_POST['mail']);
             $password = htmlspecialchars($_POST['mdp']);
             $mail = strtolower($mail);
-            $check = $database->prepare('SELECT id, nom, prenom, mail, password, photo,description FROM Etudiant WHERE mail = ?');
+            $check = $database->prepare('SELECT id, nom, prenom, mail, password, photo,description FROM etudiant WHERE mail = ?');
             $check->execute(array($mail));
             $result = $check->get_result();
             $row = $result->num_rows;
@@ -54,7 +54,7 @@
                         $_SESSION['bio'] = $data['description'];
                         header('Location: index.php');
                         $status = "Active now";
-                        $sql = mysqli_query($database, "UPDATE Etudiant SET status = '{$status}' WHERE id={$_SESSION['id']}");
+                        $sql = mysqli_query($database, "UPDATE etudiant SET status = '{$status}' WHERE id={$_SESSION['id']}");
                         die();
 
                     } else {
