@@ -26,6 +26,7 @@ require_once('phpclass/menu.php');
     if (!isset($_SESSION['id'])) {
         require_once('phpclass/login.php');
         require_once('phpclass/signup.php');
+        require_once('phpclass/PopUpAlert.php');
         require_once('phpclass/submit.php');
     }
     ?>

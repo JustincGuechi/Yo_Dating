@@ -28,24 +28,24 @@ class mdpLa
         if (isset($_POST['changepass'])) {
             if (isset($_POST['mdp']) && isset($_POST['mdpconfirm'])) {
                 if ($_POST['mdp'] == $_POST['mdpconfirm']) {
-                    $mdp = $_POST['mdp'];
+                    $database = sql_database::log_database();
+                    $mdp = htmlspecialchars($_POST['mdp']);
                     $token = $_GET['token'];
 
-                    $database = sql_database::log_database();
+                    $cost = ['cost' => 12];
+                    $mdp = password_hash($mdp, PASSWORD_BCRYPT, $cost);
 
-                    $mql = "SELECT Etudiant dateExpiration WHERE token = ? ";
+                    $mql = "SELECT id FROM Etudiant dateExpiration WHERE token = '$token' ";
                     $sql = mysqli_query($database, $mql);
-                    if ($sql != false) {
-                        $result1 = mysqli_fetch_assoc($sql);
-                    }
-
+                    $result1 = mysqli_fetch_assoc($sql);
+                    $row = mysqli_num_rows($sql);
                     $dateActuelle = new DateTime();
                     $dateFormatee = $dateActuelle->format('Y-m-d H:i:s');
                     if (isset($result1)) {
-                        if ($result1["count"] > 0) {
+                        if ($row > 0) {
                             if ($result1 > $dateFormatee) {
                                 $check = $database->prepare("UPDATE Etudiant SET password = '$mdp' WHERE token = '$token'");
-                                $check->execute(array($token));
+                                $check->execute();
 
                                 header('Location: index.php');
                                 die();

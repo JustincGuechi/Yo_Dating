@@ -57,10 +57,16 @@
                         $sql = mysqli_query($database, "UPDATE Etudiant SET status = '{$status}' WHERE id={$_SESSION['id']}");
                         die();
 
-                    }else{echo "<script> alert('password')</script>";}
+                    } else {
+                        echo "<script> displayPopup('Mauvais mots de passe')</script>";
+                    }
 
-                }else{echo "<script> alert('mail')</script>";}
-             }else{echo "<script> alert('account')</script>";}
+                } else {
+                    echo "<script> displayPopup('Mauvais e-mail')</script>";
+                }
+             } else {
+                echo "<script> displayPopup('Le compte n\'existe pas')</script>";
+            }
 
 }
 ?>
